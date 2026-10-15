@@ -1,425 +1,332 @@
 # API Ficha 3230985
 
-API de gestión de horarios trimestrales, alineada con los módulos de [Synchronize Center](https://synchronize-center.com/): programación trimestral, programas de formación, fichas, instructores, ambientes y malla trimestral.
+Diccionario de datos de un sistema de horarios trimestrales, con el mismo alcance que [Synchronize Center](https://synchronize-center.com/): ficha, programa, trimestre, instructor, ambiente y actividades.
 
-La consulta pública de horarios se filtra por tipo de búsqueda, año y trimestre. Cada tabla del diccionario tiene una entidad Eloquent y un archivo de migración. El orden de abajo es el orden en que deben ejecutarse: primero los catálogos, después las tablas que dependen de ellos.
+Hay **21 entidades**, una por cada aprendiz de la ficha **3230985**. El orden de la tabla es el orden en que se llaman las migraciones.
 
-Las migraciones de infraestructura de Laravel ya existen y corren antes que el dominio:
+Cada entidad guarda la identificación del aprendiz y su horario: día, hora, ambiente, instructor y el cumplimiento de `Actividad1` y `Actividad2`. En el listado ambas actividades están en `Si`.
 
-| Orden | Migración | Tabla |
-| --- | --- | --- |
-| 0 | `0001_01_01_000000_create_users_table` | `users`, `password_reset_tokens`, `sessions` |
-| 0 | `0001_01_01_000001_create_cache_table` | `cache`, `cache_locks` |
-| 0 | `0001_01_01_000002_create_jobs_table` | `jobs`, `job_batches`, `failed_jobs` |
+## Orden de migración
 
-## Orden de migración del dominio
+| Orden | Migración | Tabla | Entidad | Aprendiz |
+| --- | --- | --- | --- | --- |
+| 1 | `2026_10_15_000001_create_juan_david_gamba_canon_table` | `juan_david_gamba_canon` | `JuanDavidGambaCanon` | Juan David Gamba Cañon |
+| 2 | `2026_10_15_000002_create_danna_sofia_salcedo_cruz_table` | `danna_sofia_salcedo_cruz` | `DannaSofiaSalcedoCruz` | Danna Sofia Salcedo Cruz |
+| 3 | `2026_10_15_000003_create_manuela_alejandra_barragan_bastidas_table` | `manuela_alejandra_barragan_bastidas` | `ManuelaAlejandraBarraganBastidas` | Manuela Alejandra Barragan Bastidas |
+| 4 | `2026_10_15_000004_create_paula_andrea_medina_sanchez_table` | `paula_andrea_medina_sanchez` | `PaulaAndreaMedinaSanchez` | Paula Andrea Medina Sanchez |
+| 5 | `2026_10_15_000005_create_julian_andres_becerra_guzman_table` | `julian_andres_becerra_guzman` | `JulianAndresBecerraGuzman` | Julian Andres Becerra Guzman |
+| 6 | `2026_10_15_000006_create_esteban_rivera_salazar_table` | `esteban_rivera_salazar` | `EstebanRiveraSalazar` | Esteban Rivera Salazar |
+| 7 | `2026_10_15_000007_create_eduar_santiago_galindo_avila_table` | `eduar_santiago_galindo_avila` | `EduarSantiagoGalindoAvila` | Eduar Santiago Galindo Avila |
+| 8 | `2026_10_15_000008_create_jhony_styven_gaitan_sigua_table` | `jhony_styven_gaitan_sigua` | `JhonyStyvenGaitanSigua` | Jhony Styven Gaitan Sigua |
+| 9 | `2026_10_15_000009_create_diego_alejandro_leal_suarez_table` | `diego_alejandro_leal_suarez` | `DiegoAlejandroLealSuarez` | Diego Alejandro Leal Suarez |
+| 10 | `2026_10_15_000010_create_sergio_esteban_bermudez_toro_table` | `sergio_esteban_bermudez_toro` | `SergioEstebanBermudezToro` | Sergio Esteban Bermudez Toro |
+| 11 | `2026_10_15_000011_create_juan_camilo_aricapa_garcia_table` | `juan_camilo_aricapa_garcia` | `JuanCamiloAricapaGarcia` | Juan Camilo Aricapa Garcia |
+| 12 | `2026_10_15_000012_create_leidy_paola_tavera_tique_table` | `leidy_paola_tavera_tique` | `LeidyPaolaTaveraTique` | Leidy Paola Tavera Tique |
+| 13 | `2026_10_15_000013_create_santiago_casallas_mosquera_table` | `santiago_casallas_mosquera` | `SantiagoCasallasMosquera` | Santiago Casallas Mosquera |
+| 14 | `2026_10_15_000014_create_laura_sofia_perez_mazabuel_table` | `laura_sofia_perez_mazabuel` | `LauraSofiaPerezMazabuel` | Laura Sofia Perez Mazabuel |
+| 15 | `2026_10_15_000015_create_carlos_andres_gonzalez_ramirez_table` | `carlos_andres_gonzalez_ramirez` | `CarlosAndresGonzalezRamirez` | Carlos Andres Gonzalez Ramirez |
+| 16 | `2026_10_15_000016_create_joshua_alexander_galindo_reyes_table` | `joshua_alexander_galindo_reyes` | `JoshuaAlexanderGalindoReyes` | Joshua Alexander Galindo Reyes |
+| 17 | `2026_10_15_000017_create_jonnathan_favian_maldonado_perez_table` | `jonnathan_favian_maldonado_perez` | `JonnathanFavianMaldonadoPerez` | Jonnathan Favian Maldonado Perez |
+| 18 | `2026_10_15_000018_create_paula_lorena_obando_mendez_table` | `paula_lorena_obando_mendez` | `PaulaLorenaObandoMendez` | Paula Lorena Obando Mendez |
+| 19 | `2026_10_15_000019_create_diego_andres_bohorquez_perez_table` | `diego_andres_bohorquez_perez` | `DiegoAndresBohorquezPerez` | Diego Andres Bohorquez Perez |
+| 20 | `2026_10_15_000020_create_johan_sebastian_florez_quinonez_table` | `johan_sebastian_florez_quinonez` | `JohanSebastianFlorezQuinonez` | Johan Sebastian Florez Quiñonez |
+| 21 | `2026_10_15_000021_create_juan_jose_acevedo_silva_table` | `juan_jose_acevedo_silva` | `JuanJoseAcevedoSilva` | Juan Jose Acevedo Silva |
 
-| Orden | Migración | Tabla | Entidad |
+Las 21 tablas comparten la misma estructura. `id` es la clave primaria. `numero_documento` es único. `created_at` y `updated_at` son obligatorios.
+
+| Campo | Tipo | Nulo | Descripción |
 | --- | --- | --- | --- |
-| 1 | `2026_10_15_000001_create_centros_table` | `centros` | `Centro` |
-| 2 | `2026_10_15_000002_create_roles_table` | `roles` | `Rol` |
-| 3 | `2026_10_15_000003_create_tipos_documento_table` | `tipos_documento` | `TipoDocumento` |
-| 4 | `2026_10_15_000004_create_jornadas_table` | `jornadas` | `Jornada` |
-| 5 | `2026_10_15_000005_create_niveles_formacion_table` | `niveles_formacion` | `NivelFormacion` |
-| 6 | `2026_10_15_000006_create_modalidades_table` | `modalidades` | `Modalidad` |
-| 7 | `2026_10_15_000007_create_dias_table` | `dias` | `Dia` |
-| 8 | `2026_10_15_000008_create_vigencias_table` | `vigencias` | `Vigencia` |
-| 9 | `2026_10_15_000009_create_trimestres_table` | `trimestres` | `Trimestre` |
-| 10 | `2026_10_15_000010_create_especialidades_table` | `especialidades` | `Especialidad` |
-| 11 | `2026_10_15_000011_create_tipos_vinculacion_table` | `tipos_vinculacion` | `TipoVinculacion` |
-| 12 | `2026_10_15_000012_create_usuarios_table` | `usuarios` | `Usuario` |
-| 13 | `2026_10_15_000013_create_programas_formacion_table` | `programas_formacion` | `ProgramaFormacion` |
-| 14 | `2026_10_15_000014_create_competencias_table` | `competencias` | `Competencia` |
-| 15 | `2026_10_15_000015_create_resultados_aprendizaje_table` | `resultados_aprendizaje` | `ResultadoAprendizaje` |
-| 16 | `2026_10_15_000016_create_mallas_trimestrales_table` | `mallas_trimestrales` | `MallaTrimestral` |
-| 17 | `2026_10_15_000017_create_malla_resultados_table` | `malla_resultados` | `MallaResultado` |
-| 18 | `2026_10_15_000018_create_ambientes_table` | `ambientes` | `Ambiente` |
-| 19 | `2026_10_15_000019_create_instructores_table` | `instructores` | `Instructor` |
-| 20 | `2026_10_15_000020_create_instructor_competencias_table` | `instructor_competencias` | `InstructorCompetencia` |
-| 21 | `2026_10_15_000021_create_fichas_table` | `fichas` | `Ficha` |
-| 22 | `2026_10_15_000022_create_aprendices_table` | `aprendices` | `Aprendiz` |
-| 23 | `2026_10_15_000023_create_ficha_aprendices_table` | `ficha_aprendices` | `FichaAprendiz` |
-| 24 | `2026_10_15_000024_create_programaciones_trimestrales_table` | `programaciones_trimestrales` | `ProgramacionTrimestral` |
-| 25 | `2026_10_15_000025_create_eventos_formacion_table` | `eventos_formacion` | `EventoFormacion` |
-| 26 | `2026_10_15_000026_create_actividades_table` | `actividades` | `Actividad` |
-| 27 | `2026_10_15_000027_create_aprendiz_actividades_table` | `aprendiz_actividades` | `AprendizActividad` |
-
-Convenciones de cada tabla de negocio:
-
-- `id`: `bigint` autoincremental, clave primaria.
-- `created_at` y `updated_at`: `timestamp`, obligatorios.
-- Las claves foráneas usan `restrict` al borrar el padre, salvo que el campo indique lo contrario.
-- Los campos marcados como únicos no admiten duplicados.
+| `id` | `bigint` | No | Identificador del horario del aprendiz |
+| `tipo_documento` | `string(5)` | No | `CC` o `TI` |
+| `numero_documento` | `string(20)` | No | Número de documento |
+| `nombres` | `string(80)` | No | Nombres |
+| `apellidos` | `string(80)` | No | Apellidos |
+| `ficha` | `string(20)` | No | Número de ficha. Valor: `3230985` |
+| `programa` | `string(200)` | No | Programa de formación asignado a la ficha |
+| `trimestre` | `unsignedTinyInteger` | No | Trimestre del horario (1–4) |
+| `anio` | `unsignedSmallInteger` | No | Año de la vigencia |
+| `jornada` | `string(20)` | No | Mañana, tarde, noche o mixta |
+| `dia` | `string(15)` | No | Día del bloque de horario |
+| `hora_inicio` | `time` | No | Hora de inicio del bloque |
+| `hora_fin` | `time` | No | Hora de fin del bloque |
+| `ambiente` | `string(120)` | No | Ambiente de formación (nombre, especialidad y capacidad) |
+| `instructor` | `string(150)` | No | Instructor del evento |
+| `competencia` | `string(255)` | No | Competencia de la malla trimestral |
+| `resultado_aprendizaje` | `text` | No | Resultado de aprendizaje programado |
+| `actividad_1` | `string(2)` | No | Cumplimiento de Actividad 1. En el listado: `Si` |
+| `actividad_2` | `string(2)` | No | Cumplimiento de Actividad 2. En el listado: `Si` |
 
 ## Diccionario de datos
 
-### 1. Centro
-
-Centro de formación que administra programas, ambientes, fichas e instructores. En Synchronize corresponde al centro (CDM).
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `codigo` | `string(20)` | No | Único | Código del centro |
-| `nombre` | `string(150)` | No | | Nombre del centro |
-| `regional` | `string(120)` | No | | Regional a la que pertenece |
-| `direccion` | `string(200)` | Sí | | Dirección de la sede |
-
-### 2. Rol
-
-Perfil de acceso al sistema: administrador, coordinador, instructor o aprendiz.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `nombre` | `string(50)` | No | Único | Nombre del rol |
-| `descripcion` | `string(255)` | Sí | | Qué puede hacer ese rol |
-
-### 3. TipoDocumento
-
-Catálogo de documentos de identidad usado por instructores y aprendices (`CC`, `TI`, `CE`, `PPT`).
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `codigo` | `string(10)` | No | Único | Sigla del documento |
-| `nombre` | `string(80)` | No | | Nombre completo |
-
-### 4. Jornada
-
-Franja en la que se ofrece la ficha: mañana, tarde, noche o mixta.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `nombre` | `string(40)` | No | Único | Nombre de la jornada |
-| `hora_inicio` | `time` | No | | Hora de apertura de la jornada |
-| `hora_fin` | `time` | No | | Hora de cierre de la jornada |
-
-### 5. NivelFormacion
-
-Nivel del programa: auxiliar, operario, técnico o tecnólogo.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `nombre` | `string(60)` | No | Único | Nombre del nivel |
-
-### 6. Modalidad
-
-Forma de impartir la formación: presencial, virtual o a distancia.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `nombre` | `string(60)` | No | Único | Nombre de la modalidad |
-
-### 7. Dia
-
-Día de la semana en el que se ubica un evento de horario. `orden` va de 1 (lunes) a 7 (domingo).
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `nombre` | `string(20)` | No | Único | Nombre del día |
-| `orden` | `unsignedTinyInteger` | No | Único | Posición en la semana |
-
-### 8. Vigencia
-
-Año lectivo. Es el filtro «Año» de la consulta de horarios.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `anio` | `unsignedSmallInteger` | No | Único | Año calendario |
-
-### 9. Trimestre
-
-Periodo 1 a 4 dentro de una vigencia. Es el filtro «Trimestre» de la consulta de horarios.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `vigencia_id` | `bigint` | No | FK → `vigencias.id` | Año al que pertenece |
-| `numero` | `unsignedTinyInteger` | No | Único con `vigencia_id` | Número del trimestre (1–4) |
-| `nombre` | `string(40)` | No | | Etiqueta visible, por ejemplo «Trimestre 1» |
-| `fecha_inicio` | `date` | No | | Primer día del trimestre |
-| `fecha_fin` | `date` | No | | Último día del trimestre |
-
-### 10. Especialidad
-
-Especialidad del ambiente o del instructor (diseño, metrología, software, etc.).
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `nombre` | `string(120)` | No | Único | Nombre de la especialidad |
-| `descripcion` | `string(255)` | Sí | | Detalle de la especialidad |
-
-### 11. TipoVinculacion
-
-Forma de contratación del instructor: planta o contratista.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `nombre` | `string(40)` | No | Único | Nombre del tipo de vinculación |
-
-### 12. Usuario
-
-Cuenta de acceso asociada a un rol. Se usa para ingresar al centro, igual que el login de Synchronize. El documento y los datos académicos viven en `Instructor` o `Aprendiz`.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `rol_id` | `bigint` | No | FK → `roles.id` | Rol de la cuenta |
-| `nombre` | `string(150)` | No | | Nombre visible |
-| `correo` | `string(150)` | No | Único | Correo de ingreso |
-| `password` | `string` | No | | Contraseña cifrada |
-| `activo` | `boolean` | No | | `true` si puede iniciar sesión |
-
-### 13. ProgramaFormacion
-
-Programa que se asigna a las fichas. Módulo «Programas de Formación».
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `centro_id` | `bigint` | No | FK → `centros.id` | Centro que oferta el programa |
-| `nivel_formacion_id` | `bigint` | No | FK → `niveles_formacion.id` | Nivel del programa |
-| `modalidad_id` | `bigint` | No | FK → `modalidades.id` | Modalidad del programa |
-| `codigo` | `string(20)` | No | Único con `version` | Código del programa |
-| `version` | `string(10)` | No | Único con `codigo` | Versión del diseño curricular |
-| `nombre` | `string(200)` | No | | Nombre del programa |
-| `duracion_horas` | `unsignedInteger` | No | | Duración total en horas |
-| `activo` | `boolean` | No | | `true` si se puede asignar a fichas nuevas |
-
-### 14. Competencia
-
-Competencia del programa. La malla trimestral agrupa competencias y sus resultados.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `programa_formacion_id` | `bigint` | No | FK → `programas_formacion.id` | Programa dueño de la competencia |
-| `codigo` | `string(20)` | No | Único con el programa | Código de la competencia |
-| `nombre` | `string(255)` | No | | Nombre de la competencia |
-| `horas` | `unsignedInteger` | No | | Horas de la competencia |
-
-### 15. ResultadoAprendizaje
-
-Resultado de aprendizaje de una competencia. Es la unidad que se programa en el horario.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `competencia_id` | `bigint` | No | FK → `competencias.id` | Competencia a la que pertenece |
-| `codigo` | `string(20)` | No | Único con la competencia | Código del resultado |
-| `nombre` | `text` | No | | Enunciado del resultado |
-| `horas` | `unsignedInteger` | No | | Horas del resultado |
-
-### 16. MallaTrimestral
-
-Planeación de un programa para un trimestre: qué resultados se ven en ese periodo. Módulo «Malla Trimestral».
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `programa_formacion_id` | `bigint` | No | FK → `programas_formacion.id` | Programa de la malla |
-| `trimestre_id` | `bigint` | No | FK → `trimestres.id` | Trimestre de la malla |
-| `nombre` | `string(150)` | No | | Nombre de la malla |
-| `descripcion` | `text` | Sí | | Observación de la planeación |
-
-Índice único: `programa_formacion_id` + `trimestre_id`.
-
-### 17. MallaResultado
-
-Resultado de aprendizaje incluido en una malla, con las horas que se dictan en ese trimestre.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `malla_trimestral_id` | `bigint` | No | FK → `mallas_trimestrales.id` | Malla que incluye el resultado |
-| `resultado_aprendizaje_id` | `bigint` | No | FK → `resultados_aprendizaje.id` | Resultado programado |
-| `horas_programadas` | `unsignedInteger` | No | | Horas de ese resultado en el trimestre |
-| `orden` | `unsignedSmallInteger` | No | | Orden de aparición en la malla |
-
-Índice único: `malla_trimestral_id` + `resultado_aprendizaje_id`.
-
-### 18. Ambiente
-
-Espacio de formación. Módulo «Ambientes»: nombre, especialidad y capacidad.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `centro_id` | `bigint` | No | FK → `centros.id` | Centro dueño del ambiente |
-| `especialidad_id` | `bigint` | Sí | FK → `especialidades.id` | Especialidad del ambiente |
-| `codigo` | `string(20)` | No | Único con el centro | Código interno del ambiente |
-| `nombre` | `string(120)` | No | | Nombre del ambiente |
-| `tipo` | `string(30)` | No | | `aula`, `taller`, `laboratorio` o `virtual` |
-| `capacidad` | `unsignedSmallInteger` | No | | Cupo de personas |
-| `activo` | `boolean` | No | | `true` si se puede asignar a un horario |
-
-### 19. Instructor
-
-Instructor asignado a eventos de formación. Módulo «Instructores».
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `usuario_id` | `bigint` | Sí | FK → `usuarios.id`, único | Cuenta de acceso, si tiene |
-| `centro_id` | `bigint` | No | FK → `centros.id` | Centro de vinculación |
-| `tipo_documento_id` | `bigint` | No | FK → `tipos_documento.id` | Tipo de documento |
-| `tipo_vinculacion_id` | `bigint` | No | FK → `tipos_vinculacion.id` | Planta o contratista |
-| `especialidad_id` | `bigint` | Sí | FK → `especialidades.id` | Especialidad principal |
-| `numero_documento` | `string(20)` | No | Único | Número de documento |
-| `nombres` | `string(80)` | No | | Nombres |
-| `apellidos` | `string(80)` | No | | Apellidos |
-| `correo` | `string(150)` | No | Único | Correo institucional |
-| `telefono` | `string(20)` | Sí | | Teléfono de contacto |
-| `activo` | `boolean` | No | | `true` si puede recibir horario |
-
-### 20. InstructorCompetencia
-
-Competencias que el instructor está habilitado para dictar. Sirve para proponer instructor al armar el horario.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `instructor_id` | `bigint` | No | FK → `instructores.id` | Instructor habilitado |
-| `competencia_id` | `bigint` | No | FK → `competencias.id` | Competencia que puede dictar |
-
-Índice único: `instructor_id` + `competencia_id`.
-
-### 21. Ficha
-
-Grupo de formación (ficha de caracterización). El número `3230985` es una ficha. Módulo «Fichas».
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `centro_id` | `bigint` | No | FK → `centros.id` | Centro de la ficha |
-| `programa_formacion_id` | `bigint` | No | FK → `programas_formacion.id` | Programa asignado |
-| `jornada_id` | `bigint` | No | FK → `jornadas.id` | Jornada de la ficha |
-| `numero` | `string(20)` | No | Único | Número de ficha |
-| `fecha_inicio` | `date` | No | | Inicio de la formación |
-| `fecha_fin` | `date` | No | | Fin de la formación |
-| `cupo` | `unsignedSmallInteger` | No | | Cupo de aprendices |
-| `estado` | `string(30)` | No | | `en_formacion`, `finalizada` o `cancelada` |
-
-### 22. Aprendiz
-
-Persona matriculada. Los datos de identificación coinciden con el listado de la ficha: tipo de documento, número, nombres y apellidos.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `usuario_id` | `bigint` | Sí | FK → `usuarios.id`, único | Cuenta de acceso, si tiene |
-| `tipo_documento_id` | `bigint` | No | FK → `tipos_documento.id` | Tipo de documento |
-| `numero_documento` | `string(20)` | No | Único | Número de documento |
-| `nombres` | `string(80)` | No | | Nombres |
-| `apellidos` | `string(80)` | No | | Apellidos |
-| `correo` | `string(150)` | Sí | Único | Correo, si está registrado |
-| `telefono` | `string(20)` | Sí | | Teléfono de contacto |
-
-### 23. FichaAprendiz
-
-Matrícula del aprendiz en una ficha. Un aprendiz puede pasar por varias fichas; una ficha tiene muchos aprendices.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `ficha_id` | `bigint` | No | FK → `fichas.id` | Ficha |
-| `aprendiz_id` | `bigint` | No | FK → `aprendices.id` | Aprendiz |
-| `fecha_ingreso` | `date` | No | | Fecha de matrícula |
-| `fecha_retiro` | `date` | Sí | | Fecha de retiro, si aplica |
-| `estado` | `string(20)` | No | | `activo`, `retirado` o `aplazado` |
-
-Índice único: `ficha_id` + `aprendiz_id`.
-
-### 24. ProgramacionTrimestral
-
-Horario trimestral de una ficha sobre una malla. Módulo «Programación Trimestral».
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `ficha_id` | `bigint` | No | FK → `fichas.id` | Ficha programada |
-| `malla_trimestral_id` | `bigint` | No | FK → `mallas_trimestrales.id` | Malla que se ejecuta |
-| `trimestre_id` | `bigint` | No | FK → `trimestres.id` | Trimestre de la programación |
-| `estado` | `string(20)` | No | | `borrador`, `publicada` o `cerrada` |
-
-Índice único: `ficha_id` + `trimestre_id`.
-
-### 25. EventoFormacion
-
-Bloque del horario: resultado, instructor, ambiente, día y rango de hora. Es la fila que se consulta por ficha, instructor o ambiente.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `programacion_trimestral_id` | `bigint` | No | FK → `programaciones_trimestrales.id` | Programación a la que pertenece |
-| `resultado_aprendizaje_id` | `bigint` | No | FK → `resultados_aprendizaje.id` | Resultado que se dicta |
-| `instructor_id` | `bigint` | No | FK → `instructores.id` | Instructor del bloque |
-| `ambiente_id` | `bigint` | No | FK → `ambientes.id` | Ambiente del bloque |
-| `dia_id` | `bigint` | No | FK → `dias.id` | Día de la semana |
-| `hora_inicio` | `time` | No | | Hora de inicio |
-| `hora_fin` | `time` | No | | Hora de fin |
-| `fecha_inicio` | `date` | No | | Desde qué fecha aplica el bloque |
-| `fecha_fin` | `date` | No | | Hasta qué fecha aplica el bloque |
-
-Un instructor o un ambiente no pueden tener dos eventos solapados el mismo día y la misma franja dentro del mismo trimestre. Esa regla se valida en la aplicación al guardar el evento.
-
-### 26. Actividad
-
-Actividad o evidencia asociada a un resultado dentro de la ficha. En el listado de aprendices aparecen como `Actividad1` y `Actividad2`.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `ficha_id` | `bigint` | No | FK → `fichas.id` | Ficha en la que se realiza |
-| `resultado_aprendizaje_id` | `bigint` | No | FK → `resultados_aprendizaje.id` | Resultado que evalúa |
-| `nombre` | `string(120)` | No | | Nombre, por ejemplo «Actividad 1» |
-| `descripcion` | `text` | Sí | | Qué debe entregar o demostrar el aprendiz |
-| `fecha` | `date` | Sí | | Fecha prevista |
-
-### 27. AprendizActividad
-
-Cumplimiento de una actividad por un aprendiz de la ficha. El valor `Si` del listado se guarda como `cumplio = true`.
-
-| Campo | Tipo | Nulo | Clave | Descripción |
-| --- | --- | --- | --- | --- |
-| `id` | `bigint` | No | PK | Identificador |
-| `actividad_id` | `bigint` | No | FK → `actividades.id` | Actividad |
-| `aprendiz_id` | `bigint` | No | FK → `aprendices.id` | Aprendiz |
-| `cumplio` | `boolean` | No | | `true` si la realizó |
-| `observacion` | `string(255)` | Sí | | Nota del instructor |
-
-Índice único: `actividad_id` + `aprendiz_id`.
-
-## Relaciones
-
-```text
-Centro 1──* ProgramaFormacion 1──* Competencia 1──* ResultadoAprendizaje
-Centro 1──* Ambiente
-Centro 1──* Instructor
-Centro 1──* Ficha
-
-Vigencia 1──* Trimestre 1──* MallaTrimestral *──* ResultadoAprendizaje
-ProgramaFormacion 1──* MallaTrimestral
-ProgramaFormacion 1──* Ficha
-
-Ficha *──* Aprendiz
-Ficha 1──* ProgramacionTrimestral 1──* EventoFormacion
-EventoFormacion *──1 Instructor
-EventoFormacion *──1 Ambiente
-EventoFormacion *──1 ResultadoAprendizaje
-EventoFormacion *──1 Dia
-
-Instructor *──* Competencia
-Ficha 1──* Actividad 1──* AprendizActividad *──1 Aprendiz
-
-Rol 1──* Usuario 1──0..1 Instructor
-Usuario 1──0..1 Aprendiz
-```
+### 1. JuanDavidGambaCanon
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000001_create_juan_david_gamba_canon_table`. Tabla `juan_david_gamba_canon`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1001327363 |
+| `nombres` | JUAN DAVID |
+| `apellidos` | GAMBA CAÑON |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 2. DannaSofiaSalcedoCruz
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000002_create_danna_sofia_salcedo_cruz_table`. Tabla `danna_sofia_salcedo_cruz`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1013110592 |
+| `nombres` | DANNA SOFIA |
+| `apellidos` | SALCEDO CRUZ |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 3. ManuelaAlejandraBarraganBastidas
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000003_create_manuela_alejandra_barragan_bastidas_table`. Tabla `manuela_alejandra_barragan_bastidas`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | TI |
+| `numero_documento` | 1013117934 |
+| `nombres` | MANUELA ALEJANDRA |
+| `apellidos` | BARRAGAN BASTIDAS |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 4. PaulaAndreaMedinaSanchez
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000004_create_paula_andrea_medina_sanchez_table`. Tabla `paula_andrea_medina_sanchez`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1013120192 |
+| `nombres` | PAULA ANDREA |
+| `apellidos` | MEDINA SANCHEZ |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 5. JulianAndresBecerraGuzman
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000005_create_julian_andres_becerra_guzman_table`. Tabla `julian_andres_becerra_guzman`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1014862808 |
+| `nombres` | JULIAN ANDRES |
+| `apellidos` | BECERRA GUZMAN |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 6. EstebanRiveraSalazar
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000006_create_esteban_rivera_salazar_table`. Tabla `esteban_rivera_salazar`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1016595593 |
+| `nombres` | ESTEBAN |
+| `apellidos` | RIVERA SALAZAR |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 7. EduarSantiagoGalindoAvila
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000007_create_eduar_santiago_galindo_avila_table`. Tabla `eduar_santiago_galindo_avila`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1022354706 |
+| `nombres` | EDUAR SANTIAGO |
+| `apellidos` | GALINDO AVILA |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 8. JhonyStyvenGaitanSigua
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000008_create_jhony_styven_gaitan_sigua_table`. Tabla `jhony_styven_gaitan_sigua`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1022922375 |
+| `nombres` | JHONY STYVEN |
+| `apellidos` | GAITAN SIGUA |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 9. DiegoAlejandroLealSuarez
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000009_create_diego_alejandro_leal_suarez_table`. Tabla `diego_alejandro_leal_suarez`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1023373007 |
+| `nombres` | DIEGO ALEJANDRO |
+| `apellidos` | LEAL SUAREZ |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 10. SergioEstebanBermudezToro
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000010_create_sergio_esteban_bermudez_toro_table`. Tabla `sergio_esteban_bermudez_toro`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | TI |
+| `numero_documento` | 1023377102 |
+| `nombres` | SERGIO ESTEBAN |
+| `apellidos` | BERMUDEZ TORO |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 11. JuanCamiloAricapaGarcia
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000011_create_juan_camilo_aricapa_garcia_table`. Tabla `juan_camilo_aricapa_garcia`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1023889974 |
+| `nombres` | JUAN CAMILO |
+| `apellidos` | ARICAPA GARCIA |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 12. LeidyPaolaTaveraTique
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000012_create_leidy_paola_tavera_tique_table`. Tabla `leidy_paola_tavera_tique`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1027525986 |
+| `nombres` | LEIDY PAOLA |
+| `apellidos` | TAVERA TIQUE |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 13. SantiagoCasallasMosquera
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000013_create_santiago_casallas_mosquera_table`. Tabla `santiago_casallas_mosquera`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1028484319 |
+| `nombres` | SANTIAGO |
+| `apellidos` | CASALLAS MOSQUERA |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 14. LauraSofiaPerezMazabuel
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000014_create_laura_sofia_perez_mazabuel_table`. Tabla `laura_sofia_perez_mazabuel`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1031812151 |
+| `nombres` | LAURA SOFIA |
+| `apellidos` | PEREZ MAZABUEL |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 15. CarlosAndresGonzalezRamirez
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000015_create_carlos_andres_gonzalez_ramirez_table`. Tabla `carlos_andres_gonzalez_ramirez`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1032360691 |
+| `nombres` | CARLOS ANDRES |
+| `apellidos` | GONZALEZ RAMIREZ |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 16. JoshuaAlexanderGalindoReyes
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000016_create_joshua_alexander_galindo_reyes_table`. Tabla `joshua_alexander_galindo_reyes`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1032678007 |
+| `nombres` | JOSHUA ALEXANDER |
+| `apellidos` | GALINDO REYES |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 17. JonnathanFavianMaldonadoPerez
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000017_create_jonnathan_favian_maldonado_perez_table`. Tabla `jonnathan_favian_maldonado_perez`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1055942038 |
+| `nombres` | JONNATHAN FAVIAN |
+| `apellidos` | MALDONADO PEREZ |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 18. PaulaLorenaObandoMendez
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000018_create_paula_lorena_obando_mendez_table`. Tabla `paula_lorena_obando_mendez`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1069899400 |
+| `nombres` | PAULA LORENA |
+| `apellidos` | OBANDO MENDEZ |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 19. DiegoAndresBohorquezPerez
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000019_create_diego_andres_bohorquez_perez_table`. Tabla `diego_andres_bohorquez_perez`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1094049396 |
+| `nombres` | DIEGO ANDRES |
+| `apellidos` | BOHORQUEZ PEREZ |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 20. JohanSebastianFlorezQuinonez
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000020_create_johan_sebastian_florez_quinonez_table`. Tabla `johan_sebastian_florez_quinonez`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | TI |
+| `numero_documento` | 1105057969 |
+| `nombres` | JOHAN SEBASTIAN |
+| `apellidos` | FLOREZ QUIÑONEZ |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
+
+### 21. JuanJoseAcevedoSilva
+
+Aprendiz de la ficha 3230985. Migración `2026_10_15_000021_create_juan_jose_acevedo_silva_table`. Tabla `juan_jose_acevedo_silva`.
+
+| Campo | Valor |
+| --- | --- |
+| `tipo_documento` | CC |
+| `numero_documento` | 1142515027 |
+| `nombres` | JUAN JOSE |
+| `apellidos` | ACEVEDO SILVA |
+| `actividad_1` | Si |
+| `actividad_2` | Si |
