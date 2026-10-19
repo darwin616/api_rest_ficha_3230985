@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('niveldeformaciones', function (Blueprint $table) {
+        Schema::create('niveles_formacion', function (Blueprint $table) {
             $table->id();
             $table->string("nombre",60)->unique();
 
