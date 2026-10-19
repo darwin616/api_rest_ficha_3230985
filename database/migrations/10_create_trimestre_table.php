@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date("fecha_fin");
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign("vigencia_id")->references("id")->on(vigencias);
+            $table->foreign("vigencia_id")->references("id")->on(vigencias)->onDelete("cascade");
         });
     }
 

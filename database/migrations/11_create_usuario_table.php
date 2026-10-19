@@ -20,7 +20,7 @@ return new class extends Migration
             $table->bool("activo");
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign("rol_id")->references("id")->on(roles);
+            $table->foreign("rol_id")->references("id")->on(roles)->onDelete("cascade");
         });
     }
 
