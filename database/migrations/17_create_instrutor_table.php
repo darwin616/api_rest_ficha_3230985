@@ -27,11 +27,11 @@ return new class extends Migration
             $table->timestamps(); // crea dos campos cuando se creo y cuando se actualizo
             $table->softDeletes(); //borrador
 
-            $table->foreign("centro_id")->references("id")->on("centros")->onDelete("cascada");
-            $table->foreign("usuario_id")->references("id")->on("usuarios")->onDelete("cascada");
-            $table->foreign("tipo_vinculacion_id")->references("id")->on("tipo_vinculacion")->onDelete("cascada");
-            $table->foreign("especialidades_id")->references("id")->on("especialidades")->onDelete("cascada");
-            $table->foreign("competencia_id")->references("id")->on("competencias")->onDelete("cascada");
+            $table->foreign("centro_id")->references("id")->on("centros")->onDelete("cascade");
+            $table->foreign("usuario_id")->references("id")->on("usuarios")->onDelete("cascade");
+            $table->foreign("tipo_vinculacion_id")->references("id")->on("tipos_vinculacion")->onDelete("cascade");
+            $table->foreign("especialidades_id")->references("id")->on("especialidades")->onDelete("cascade");
+            $table->foreign("competencia_id")->references("id")->on("competencias")->onDelete("cascade");
 
         });
     }
@@ -45,3 +45,4 @@ return new class extends Migration
     }
 
 };
+Ñ
