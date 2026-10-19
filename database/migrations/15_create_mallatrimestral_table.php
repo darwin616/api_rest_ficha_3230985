@@ -11,18 +11,28 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('mallas_trimestales', function (Blueprint $table) {
-            //
+        Schema::create('mallas_trimestales', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger("programa_formacion_id");
+            $table->bigInteger("trimestre_id");
+            $table->bigInteger("resultado_aprendizaje_id");
+            $table->unsignedInteger("horas_programadas");
+            $table->unsignedSmallInteger("orden");
+
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign('programa_formacion_id')->references('id')->on('programas_formacion')->onDelete('cascade');
+            $table->foreign('trimestre_id')->references('id')->on('trimestres')->onDelete('cascade');
+            $table->foreign('resultado_aprendizaje_id')->references('id')->on('resultados_aprendizaje')->onDelete('cascade');
+
         });
     }
-
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::table('mallas_trimestales', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExist("mallas_trimestrales")
     }
 };
