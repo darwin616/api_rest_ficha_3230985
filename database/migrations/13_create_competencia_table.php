@@ -11,9 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('competencias', function (Blueprint $table) {
-            //
-        });
+        Schema::create('competencias', function (Blueprint $table) {
+            $table-> id();
+            $table->unsignedBigInteger("programa_formacion_id");
+            $table->string("codigo",20)->unique();
+            $table->string("nombre",255);
+            $table->unsignedInteger("horas");
+            $table->foreing("programa_formacion_id")-> references ("id") -> on("programa_formacion")-> ondelete ("cascade");
+      
+            $table-> timestamps();  
+            $table-> softDeletes();
+
+
+            });
     }
 
     /**
@@ -21,8 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('competencias', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists("competencias");
     }
 };
