@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string("nombre , 40")->unique();
             $table->time("hora_inicio");
             $table->time("hora_fin");
-
+            $table->date_timestamp_set();
+            $table->sofDeletes();
         });
     }
 
