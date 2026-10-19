@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('resultadoaprendizajes', function (Blueprint $table) {
+        Schema::create('resultados_aprendizaje', function (Blueprint $table) {
             $table->id();
             $table->bigint("competencias_id");
             $table->string("codigo", 20)->unique();
@@ -30,7 +30,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema:: dropIfExists("resultadoaprendizajes");
+        Schema:: dropIfExists("resultados_aprendizaje");
             //
         
     }
