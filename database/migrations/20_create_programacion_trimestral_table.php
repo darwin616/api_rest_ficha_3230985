@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ProgramacionTrimestral', function (Blueprint $table) {
+        Schema::create('programaciones_trimestral', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("ficha_id");
             $table->unsignedBigInteger("trimestre_id");
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ProgramacionTrimestral');
+        Schema::dropIfExists('programaciones_trimestral');
     }
 };
