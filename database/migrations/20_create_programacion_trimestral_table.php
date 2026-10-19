@@ -20,8 +20,8 @@ return new class extends Migration
            $table->timetamps();
            $table->softDeletes();
 
-           $table->foreign("ficha_id")->references("id")->on("Ficha")->onDelete("cascade");
-           $table->foreign("trimestre_id")->references("id")->on("Trimestre")->onDelete("cascade");
+           $table->foreign("ficha_id")->references("id")->on("fichas")->onDelete("cascade");
+           $table->foreign("trimestre_id")->references("id")->on("trimestres")->onDelete("cascade");
         });
     }
 
