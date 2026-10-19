@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('dias', function (Blueprint $table) {
-            $table->id();
+            $table->id("id");
             $table->string("nombre", 20)->unique();
             $table->unsignedTinyInteger("nombre")->unique();
 
