@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('programaformacion', function (Blueprint $table) {
+        Schema::create('programa_de_formacion', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("centro_id");
             $table->unsignedBigInteger("nivel_formacion_id");
@@ -42,6 +42,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema:: dropIFxists("programaformacion");
+        Schema:: dropIFxists("programa_de_formacion");
     }
 };
