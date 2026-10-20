@@ -17,4 +17,7 @@ class Dia extends Model
         'orden'
     ];
 
+    public function eventoFormacion(){
+        return $this->belongTo(EventosFormacion::class);
+    }
 }
