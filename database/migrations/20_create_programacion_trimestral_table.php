@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('programaciones_trimestral', function (Blueprint $table) {
+        Schema::create('programaciones_trimestrales', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("ficha_id");
             $table->unsignedBigInteger("trimestre_id");
             $table->string("estado", 20);
 
-           $table->timetamps();
+           $table->timestamps();
            $table->softDeletes();
 
            $table->foreign("ficha_id")->references("id")->on("fichas")->onDelete("cascade");
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('programaciones_trimestral');
+        Schema::dropIfExists('programaciones_trimestrales');
     }
 };

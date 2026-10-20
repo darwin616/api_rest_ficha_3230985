@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("regional", 120);
             $table->string("direccion", 200);
 
-            $table->timestaps();
+            $table->timestamps();
             $table->softDeletes();
         });
     }

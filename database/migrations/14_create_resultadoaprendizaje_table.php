@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('resultados_aprendizaje', function (Blueprint $table) {
             $table->id();
-            $table->bigint("competencias_id");
+            $table->unsignedBigInteger("competencias_id");
             $table->string("codigo", 20)->unique();
             $table->text("nombre");
-            $table->unsignedInteger("horas");
-            $table->timestamps();
-            $table->sofDeletes();
+            $table->unsignedBigInteger("horas");
 
-            $table->foreing("competencias_id")->references("id")->on("competencias")->onDelete("cascade");
+            $table->timestamps();
+            $table->softDeletes();
+
+            $table->foreign("competencias_id")->references("id")->on("competencias")->onDelete("cascade");
 
         });
     }
@@ -31,7 +32,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema:: dropIfExists("resultados_aprendizaje");
-            //
-        
     }
 };

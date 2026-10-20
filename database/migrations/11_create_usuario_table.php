@@ -13,14 +13,16 @@ return new class extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("rol_id");
-            $table->string("nombre",150);
-            $table->string("correo",150)->unique();
-            $table->string("password");
-            $table->bool("activo");
+            $table->unsignedBigInteger('rol_id');
+            $table->string('nombre', 150);
+            $table->string('correo', 150)->unique();
+            $table->string('password');
+            $table->boolean('activo')->default(true);
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign("rol_id")->references("id")->on(roles)->onDelete("cascade");
+
+            $table->foreign('rol_id')->references('id')->on('roles')->onDelete('cascade');
+            
         });
     }
 
@@ -29,7 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists("usuarios");
-}
-
+        Schema::dropIfExists('usuarios');
+    }
 };

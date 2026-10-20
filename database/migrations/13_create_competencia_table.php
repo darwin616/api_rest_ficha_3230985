@@ -12,18 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('competencias', function (Blueprint $table) {
-            $table-> id();
-            $table->unsignedBigInteger("programa_formacion_id");
-            $table->string("codigo",20)->unique();
-            $table->string("nombre",255);
-            $table->unsignedInteger("horas");
-            $table->foreing("programa_formacion_id")->references("id") ->on("programas_formacion")->ondelete("cascade");
-      
-            $table-> timestamps();  
-            $table-> softDeletes();
+            $table->id();
 
+            $table->unsignedBigInteger('programa_formacion_id');
+            $table->string('codigo', 20)->unique();
+            $table->string('nombre', 255);
+            $table->unsignedInteger('horas');
 
-            });
+            $table->foreign('programa_formacion_id')->references('id')->on('programas_formacion')->onDelete('cascade');
+
+            $table->timestamps();
+            $table->softDeletes();
+        });
     }
 
     /**
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists("competencias");
+        Schema::dropIfExists('competencias');
     }
 };
