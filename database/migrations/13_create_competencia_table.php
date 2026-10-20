@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string("codigo",20)->unique();
             $table->string("nombre",255);
             $table->unsignedInteger("horas");
-            $table->foreing("programa_formacion_id")->references("id") ->on("programas_formacion")->ondelete("cascade");
+            $table->foreign("programa_formacion_id")->references("id") ->on("programas_formacion")->ondelete("cascade");
       
             $table-> timestamps();  
             $table-> softDeletes();

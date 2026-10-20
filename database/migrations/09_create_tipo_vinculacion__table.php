@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipo_vinculaciones', function (Blueprint $table) {
+        Schema::create('tipos_vinculacion', function (Blueprint $table) {
             $table->id();
             $table->string("nombre" ,40)->unique();
             $table->timestamps();
@@ -24,7 +24,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIFExists("tipo_vinculaciones");
+        Schema::dropIfExists("tipos_vinculacion");
             
     }
 };

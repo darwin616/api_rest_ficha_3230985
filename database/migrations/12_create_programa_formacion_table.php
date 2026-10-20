@@ -20,16 +20,16 @@ return new class extends Migration
             $table->string("codigo", 20)->unique();
             $table->string("version", 10);
             $table->string("nombre", 200);
-            $table->integer("duracion_horas",);
-            $table->bool();
+            $table->integer("duracion_horas");
+            $table->boolean("activo");
             $table->timestamps();
             $table->softDeletes();
 
 
 
-            $table->foreing("centro_id")->references("id")->on("centros")->onDelete("cascade");
-            $table->foreing("nivel_de_formacion_id")->references("id")->on("niveles_formacion")->onDelete("cascade");
-            $table->foreing("modalidad")->references("id")->on("modalidades")->onDelete("cascade");
+            $table->foreign("centro_id")->references("id")->on("centros")->onDelete("cascade");
+            $table->foreign("nivel_formacion_id")->references("id")->on("niveles_formacion")->onDelete("cascade");
+            $table->foreign("modalidad_id")->references("id")->on("modalidades")->onDelete("cascade");
 
 
 
@@ -42,6 +42,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema:: dropIFxists("programas_formacion");
+        Schema::dropIfExists("programas_formacion");
     }
 };

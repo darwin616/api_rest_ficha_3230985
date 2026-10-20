@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('dias', function (Blueprint $table) {
             $table->id();
             $table->string("nombre", 20)->unique();
-            $table->unsignedTinyInteger("nombre")->unique();
+            $table->unsignedTinyInteger("orden")->unique();
 
             $table->timestamps();
             $table->softDeletes();

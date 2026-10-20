@@ -17,12 +17,12 @@ return new class extends Migration
             $table->string("apellidos",80);
             $table->string("telefono",20);
             $table->string("correo",150)->unique();
-            $table->unsigneBigInteger("usuario_id");
-            $table->unsigneBigInteger("centro_id");
-            $table->unsigneBigInteger("tipo_vinculacion_id");
-            $table->unsigneBigInteger("especialidades_id");
-            $table->unsigneBigInteger("competencia_id");
-            $table->bool("activo");
+            $table->unsignedBigInteger("usuario_id");
+            $table->unsignedBigInteger("centro_id");
+            $table->unsignedBigInteger("tipo_vinculacion_id");
+            $table->unsignedBigInteger("especialidades_id");
+            $table->unsignedBigInteger("competencia_id");
+            $table->boolean("activo");
             
             $table->timestamps(); // crea dos campos cuando se creo y cuando se actualizo
             $table->softDeletes(); //borrador

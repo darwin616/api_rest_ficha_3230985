@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('fichas', function (Blueprint $table) {
             $table->id(); // llavve primaria, con el nombre de id, bigIntger
-            $table->unsignedBigInter("centro_id"); 
-            $table->unsignedBigInter("programa_formacion_id");
-            $table->unsignedBingInter("jornada_id");
+            $table->unsignedBigInteger("centro_id"); 
+            $table->unsignedBigInteger("programa_formacion_id");
+            $table->unsignedBigInteger("jornada_id");
 
             $table->string("numero", 20)->unique();
             $table->date("fecha_inicio");
@@ -25,9 +25,9 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $tables->foreign("centro_id")->references("id")->on("centros")->onDelete("cascade");
-            $tables->foreign("programa_formacion_id")->references("id")->on("programas_formacion")->onDelete("cascade");
-            $tables->foreign("jornada_id")->references("id")->on("jornadas")->onDelete("cascade");
+            $table->foreign("centro_id")->references("id")->on("centros")->onDelete("cascade");
+            $table->foreign("programa_formacion_id")->references("id")->on("programas_formacion")->onDelete("cascade");
+            $table->foreign("jornada_id")->references("id")->on("jornadas")->onDelete("cascade");
         });
     }
 

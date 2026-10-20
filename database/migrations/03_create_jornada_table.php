@@ -17,7 +17,7 @@ return new class extends Migration
             $table->time("hora_inicio");
             $table->time("hora_fin");
             $table->timestamps();
-            $table->sofDeletes();
+            $table->softDeletes();
         });
     }
 
@@ -26,7 +26,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema:: dropIfExists("jornadas");
+        Schema::dropIfExists("jornadas");
             //
         
     }

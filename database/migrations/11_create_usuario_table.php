@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string("nombre",150);
             $table->string("correo",150)->unique();
             $table->string("password");
-            $table->bool("activo");
+            $table->boolean("activo");
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign("rol_id")->references("id")->on(roles)->onDelete("cascade");
+            $table->foreign("rol_id")->references("id")->on("roles")->onDelete("cascade");
         });
     }
 
