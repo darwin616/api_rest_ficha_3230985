@@ -2,7 +2,7 @@
 
     namespace App\Interfaces;
 
-    interface BaseInterface 
+interface BaseInterface 
     {
         public function getAll();
         public function getById(int $id);
@@ -11,7 +11,5 @@
         public function delete(int $id);
 
     }
-
-
 
 ?>

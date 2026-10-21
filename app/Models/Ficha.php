@@ -33,7 +33,7 @@ class Ficha extends Model
         return $this->belongsTo(ProgramaFormacion::class);
     }    
 
-    public function jornadaornada(){
+    public function jornada(){
         return $this->belongsTo(Jornada::class);
     }
 
