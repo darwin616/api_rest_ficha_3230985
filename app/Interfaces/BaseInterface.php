@@ -9,6 +9,4 @@ interface BaseInterfaces
     public function create(array $data);
     public function update(int $id, array $data);
     public function dalete(int $id);
-
-
 }
