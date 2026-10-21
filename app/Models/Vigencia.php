@@ -21,7 +21,7 @@ class Vigencia extends Model
 
 
     public function trimestre(){
-        return $this->belongTo(Trimestre::class);
+        return $this->hasMany(Trimestre::class);
     }
 
 
