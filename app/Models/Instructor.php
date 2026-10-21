@@ -25,18 +25,18 @@ class Instructor extends Model
     ];
 
     public function centro(){
-      return $this-> hasMany(Centro::class);
+      return $this-> belongsTo(Centro::class);
     }
     public function usuario(){
       return $this-> belongsTo(Usuario::class);
     }
     public function tipoVinculacion(){
-      return $this-> hasMeny(TipoVinculacion::class);
+      return $this-> belongTo(TipoVinculacion::class);
     }
     public function especialidades(){
-      return $this-> hasMany(Especialidades::class);
+      return $this-> belongTo(Especialidades::class);
     }
     public function competencia(){
-      return $this-> hasMany(Competencia::class);
+      return $this-> belongTo(Competencia::class);
     }
 }
