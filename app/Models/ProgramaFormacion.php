@@ -23,24 +23,24 @@ class ProgramaFormacion extends Model
         'activo',
     ];
         public function centro(){
-            return $this->belongTo(Centro::class);
+            return $this->belongsTo(Centro::class);
             
         }
          public function nivelFormacion(){
-            return $this->belongTo(NivelFormacion::class);  
+            return $this->belongsTo(NivelFormacion::class);  
 
         }
          public function modalidad(){
-            return $this->belongTo(Modalidad::class);
+            return $this->belongsTo(Modalidad::class);
             
         }
         
         public function competencia(){
-            return $this->belongTo(Competencia::class);
+            return $this->belongsTo(Competencia::class);
             
         }
          public function mallaTrimestral(){
-            return $this->belongTo(MallaTrimestral::class);
+            return $this->belongsTo(MallaTrimestral::class);
             
         }
          public function ficha(){
