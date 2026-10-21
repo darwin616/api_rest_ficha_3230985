@@ -16,15 +16,15 @@ class Centro extends Model
         "direccion"
     ];
 
-    public function ProgramaFormacion(){
+    public function programaFormacion(){
         return $this->hasMany(ProgramaFormacion::class);
     }
 
-    public function Ambiente(){
+    public function ambiente(){
         return $this->hasMany(Ambiente::class);
     }
 
-    public function Instructor(){
+    public function instructor(){
         return $this->hasMany(Instructor::class);
         
     }
