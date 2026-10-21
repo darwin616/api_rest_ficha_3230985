@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class ProgramacionTrimestral extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $table = "programacion_trimestral";
+    protected $table = "programaciones_trimestrales";
 
     protected $fillable= [
         "ficha_id",
