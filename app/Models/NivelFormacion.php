@@ -17,8 +17,7 @@ class NivelFormacion extends Model
     ];
 
     public function ProgramaFormacion(){
-        return $this->belongTo(ProgramaFormacion::class);
-    } //1 
-
+        return $this->hasMany(ProgramaFormacion::class);
+    } 
 
 }
