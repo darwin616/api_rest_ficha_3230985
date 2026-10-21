@@ -23,19 +23,19 @@ class EventoFormacion extends Model
     ];
 
     public function programacionTrimestral(){
-    return $this->hasMany(ProgramacionTrimestral::class);
+    return $this->belongTo(ProgramacionTrimestral::class);
 }
    public function resultadosAprendizaje(){
-    return $this->hasMany(ResultadosTrimestral::class);
+    return $this->belongTo(ResultadosTrimestral::class);
    }
    public function intructores(){
-    return $this->hasMany(Intructores::class);
+    return $this->belongTo(Intructores::class);
    }
    public function ambientes(){
-    return $this->hasMany(Ambientes::class);
+    return $this->belongTo(Ambientes::class);
    }
    public function dias(){
-    return $this->hasMany(Dias::class);
+    return $this->belongTo(Dias::class);
    }
 
 
