@@ -2,7 +2,7 @@
 
 namespace App\Interfaces;
 
-interface Roles extends BaseInterface
+interface Rol extends BaseInterface
 {
     public function findByName(string $nombre);
     public function findByDescription(string $descripcion);
