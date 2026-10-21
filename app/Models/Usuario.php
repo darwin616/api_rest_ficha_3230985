@@ -19,4 +19,10 @@ class Usuario extends Model
     public function rol(){
         return $this->belongTo(Rol::class);
     }
+    public function aprendiz(){
+        return $this->hasOne(Aprendiz::class);
+    }
+    public function instructor(){
+        return $this->hasOne(instructor::class);
+    }
 }
