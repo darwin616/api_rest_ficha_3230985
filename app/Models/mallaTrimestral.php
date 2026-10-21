@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class MallaTrimestral extends Model 
 {
     use HasFactory, SoftDeletes;
-    
+    //ddhs
     protected $table = "mallas_trimestrales";
     
     protected $fillable = [
