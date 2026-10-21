@@ -25,10 +25,10 @@ class MallaTrimestral extends Model
     }
 
     public function trimestre(){
-        return $this->belongsTo(Trimestre::class, 'trimestre_id');
+        return $this->hasMany(Trimestre::class, 'trimestre_id');
     }
 
     public function resultadoAprendizaje(){
-        return $this->belongsTo(ResultadoAprendizaje::class, 'resultado_aprendizaje_id');  
+        return $this->hasMany(ResultadoAprendizaje::class, 'resultado_aprendizaje_id');  
     }
 }
