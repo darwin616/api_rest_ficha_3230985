@@ -10,9 +10,10 @@ class ResultadoAprendizaje extends Model
 {
     use HasFactory, softDeletes;
 
-    protected $table = "resultadoaprendizaje";
+    protected $table = "resultados_aprendizaje";
 
     protected $fillable= [
+        'id',
         'competencias_id',
         'codigo',
         'nombre',
@@ -21,20 +22,17 @@ class ResultadoAprendizaje extends Model
     ];
 
 
-public function competencias(){
-    return $this->belongsTO(Competencias::class);
+    public function competencia(){
+    return $this->belongsTo(Competencia::class);
 
 }
-public function codigo(){
-    return $this->belongsTO(codigo::class);
+   public function mallaTrimestral(){
+    return $this->hasMany(MallaTrimestral::class);
+
 }
 
-public function nombre(){
-    return $this->belongsTO(Nombre::class);   
-}
-
-public function horas(){
-    return $this->belongsTO(Horas::class);
-}
+ public function eventoFormacion(){
+    return $this->hasMany(EventoFormacion::class);
+ }
 
 }
