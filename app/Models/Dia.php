@@ -18,6 +18,6 @@ class Dia extends Model
     ];
 
     public function eventoFormacion(){
-        return $this->belongTo(EventosFormacion::class);
+        return $this->hasMany(EventoFormacion::class);
     }
 }
