@@ -31,20 +31,20 @@ class ProgramaFormacion extends Model
 
         }
          public function modalidad(){
-            return $this->belongsTo(Modalidad::class);
+            return $this->hasMany(Modalidad::class);
             
         }
         
         public function competencia(){
-            return $this->belongsTo(Competencia::class);
+            return $this->hasMany(Competencia::class);
             
         }
          public function mallaTrimestral(){
-            return $this->belongsTo(MallaTrimestral::class);
+            return $this->hasMany(MallaTrimestral::class);
             
         }
          public function ficha(){
-            return $this->hasOne(Ficha::class);
+            return $this->hasMany(Ficha::class);
             
         }
 
