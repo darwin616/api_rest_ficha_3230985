@@ -23,21 +23,19 @@ class EventoFormacion extends Model
     ];
 
     public function programacionTrimestral(){
-    return $this->belongTo(ProgramacionTrimestral::class);
+    return $this->belongsTo(ProgramacionTrimestral::class);
 }
-   public function resultadosAprendizaje(){
-    return $this->belongTo(ResultadosTrimestral::class);
+   public function resultadoAprendizaje(){
+    return $this->belongsTo(ResultadoTrimestral::class);
    }
-   public function intructores(){
-    return $this->belongTo(Intructores::class);
+   public function intructor(){
+    return $this->belongsTo(Intructor::class);
    }
-   public function ambientes(){
-    return $this->belongTo(Ambientes::class);
+   public function ambiente(){
+    return $this->belongsTo(Ambiente::class);
    }
-   public function dias(){
-    return $this->belongTo(Dias::class);
+   public function dia(){
+    return $this->belongsTo(Dia::class);
    }
-
-
 }
 
