@@ -26,6 +26,7 @@ class Centro extends Model
 
     public function Instructor(){
         return $this->hasMany(Instructor::class);
+        
     }
 
 }
