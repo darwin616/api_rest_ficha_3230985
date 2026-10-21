@@ -31,12 +31,15 @@ class Instructor extends Model
       return $this-> belongsTo(Usuario::class);
     }
     public function tipoVinculacion(){
-      return $this-> belongTo(TipoVinculacion::class);
+      return $this-> belongsTo(TipoVinculacion::class);
     }
     public function especialidades(){
-      return $this-> belongTo(Especialidades::class);
+      return $this-> hasMany(Especialidades::class);
     }
     public function competencia(){
-      return $this-> belongTo(Competencia::class);
+      return $this-> hasMany(Competencia::class);
+    }
+    public function eventoFormacion(){
+      return $this-> hasMany(EventoFormacion::class);
     }
 }
