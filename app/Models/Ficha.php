@@ -29,19 +29,19 @@ class Ficha extends Model
         return $this->belongsTo(centro::class);
     } 
     
-    public function ProgramaFormacion(){
+    public function programaFormacion(){
         return $this->belongsTo(ProgramaFormacion::class);
     }    
 
-    public function Jornada(){
+    public function jornadaornada(){
         return $this->belongsTo(Jornada::class);
     }
 
-    public function Aprendiz(){
+    public function aprendiz(){
         return $this->hasMany(Aprendiz::class);
     }
 
-    public function ProgramaTrimestral(){
+    public function programaTrimestral(){
         return $this->hasMany(ProgramaTrimestral::class);
     }
 }
