@@ -23,11 +23,11 @@ class Ambiente extends Model
 
 
     public function centro(){
-        return $this->belongTo(Centro::class);
+        return $this->belongsTo(Centro::class);
     }
 
      public function especialidad(){
-        return $this->belongTo(Especialidad::class);
+        return $this->belongsTo(Especialidad::class);
     }
 
  
