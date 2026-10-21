@@ -19,9 +19,14 @@ class Competencia extends Model
         'horas'
     ];
 
-    public function programa_formacion() {
+    public function programaformacion() {
 
-        return $this->belongTo(programa_formacion::class);
+        return $this->belongTo(ProgramaFormacion::class);
+    }
+
+    public function horas() {
+
+        return $this->hasOne(Horas::class);
     }
 
     
