@@ -5,38 +5,38 @@ use App\Interfaces\CompetenciaInterface;
 
 class CompetenciaServices 
 {
-    protected CompetenciaInterface $competenciarepository;
+    protected CompetenciaInterface $competenciaRepository;
 
-    public function __construc(CompetenciaInterface $competenciarepository)
+    public function __construc(CompetenciaInterface $competenciaRepository)
     {
-        $this->competenciarepository = $competenciarepository;
+        return $this->competenciaRepository = $competenciaRepository;
 
     }
 
     public function getAll(){
-        return $this->competenciarepository->getAll();  
+        return $this->competenciaRepository->getAll();  
     }
 
 
     public function getById(int $id){
-        $registro = $this->competenciarepository->getById($id);  
+       return  $registro = $this->competenciaRepository->getById($id);  
 
     }
 
     public function create(array $data)
     {
-        return $this->competenciarepository->create($data); 
+        return $this->competenciaRepository->create($data); 
     }
 
 
      public function update(int $id, array $data)
      {
-        $registro = $this->competenciarepository->update($id, $data);
+        return $registro = $this->competenciaRepository->update($id, $data);
      }
 
     public function delete(int $id)
     {
-        $registro = $this->competenciarepository->delete($id);
+        return $registro = $this->competenciaRepository->delete($id);
        
     }
 
@@ -44,25 +44,25 @@ class CompetenciaServices
 
     public function findByCode(int $codigo)
     {
-    return $this->competenciarepository->findByCode($codigo);
+    return $this->competenciaRepository->findByCode($codigo);
     }
 
      public function findByName(strign $nombre)
      {     
-        return $this->competenciarepository->findByName($nombre);
+        return $this->competenciaRepository->findByName($nombre);
             
      }
 
         public function findByHour(int $horas)
     {
-        return $this->competenciarepository->findByHour($horas);
+        return $this->competenciaRepository->findByHour($horas);
                             
 
     }
 
     public function findByHourAndName(int $horas, string $nombre)
     {
-       $consulta = $this->competenciarepository->findByHourAndName($horas, $nombre);
+       $consulta = $this->competenciaRepository->findByHourAndName($horas, $nombre);
 
          if ($consulta->exists()) 
             {
