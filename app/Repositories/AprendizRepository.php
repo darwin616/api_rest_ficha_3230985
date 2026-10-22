@@ -5,7 +5,7 @@ namespace\Repositories;
 use App\Models\Aprendiz;
 
 
-class AprendizRepository extends BaseRepository implements EventoAprendizInterface
+class AprendizRepository extends BaseRepository implements AprendizInterface
 {
 
   public function __construct(Aprendiz $aprendiz)
