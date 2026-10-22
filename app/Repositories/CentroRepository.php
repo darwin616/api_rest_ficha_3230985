@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Model\Centro;
 
-class CentroRepository extends BaseRepository implements EventoCentroInterface
+class CentroRepository extends BaseRepository implements CentroInterface
 {
     public function __construct(Centro $centro)
     {
@@ -26,8 +26,6 @@ class CentroRepository extends BaseRepository implements EventoCentroInterface
     {
         return $this->model->where("direccion", $direccion)->get();
     }
-
-
     
 }
 
