@@ -6,11 +6,11 @@ use App\Interfaces\ResultadoAprendizajeInterface;
 
 class ResultadoAprendizajeServices
 {
-    protected ResultadoAprendizajeInterface $resultadoaprendizajeRepository;
+    protected ResultadoAprendizajeInterface $resultadoAprendizajeRepository;
 
-    public function   __construct(ResultadoAprendizajeInterface $resultadoaprendizajeRepository) 
+    public function   __construct(ResultadoAprendizajeInterface $resultadoAprendizajeRepository) 
     {
-        $this->resultadoaprendizajeRepository = $resultadoaprendizajeRepository;   
+        $this->resultadoAprendizajeRepository = $resultadoAprendizajeRepository;   
     }
 
       public function getAll(){
@@ -18,7 +18,7 @@ class ResultadoAprendizajeServices
     }
 
     public function getById(int $id){
-        $registro = $this->resultadoaprendizajeRepository->getById($id);  
+       return $registro = $this->resultadoaprendizajeRepository->getById($id);  
 
     }
 
@@ -40,16 +40,16 @@ class ResultadoAprendizajeServices
 
      public function finByHour(int $horas)
      {
-        return $this->finByHour($horas);
+        return $this->resultadoaprendizajeRepository($horas);
      }
 
      public function finByName(string $nombre)
      {
-        return $this->finByName($nombre);    
+        return $this->resultadoaprendizajeRepository($nombre);    
      }
 
      public function finByCompetency(string $competencias)
      {
-        return $this->finByCompetency($competencias);
+        return $this->resultadoaprendizajeRepository($competencias);
      }
 }
