@@ -37,7 +37,7 @@ class FichaService
 
     public function delete(int $id)
     {
-        $registro = $this->fichaRepository->delete($id)
+        $registro = $this->fichaRepository->delete($id);
     }
 
     public function findByDate(Carbon $fechaInicio, Carbon $fechaFin)
