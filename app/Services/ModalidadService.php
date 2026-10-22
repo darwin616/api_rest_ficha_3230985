@@ -26,7 +26,11 @@ class ModalidadService
         return $this->modalidadRepository->create($data);
     }
 
-    public function delete(array $id){
+    public function update(int $id, array $data){
+        return $this->modalidadRepository->update($id,$data);
+    }
+
+    public function delete(int $id){
         return $this->modalidadRepository->delete($id);
     }
 
