@@ -16,17 +16,17 @@ class JornadaService
         return $this->JornadaRepository->getAll();
     }
 
-    public function findByName (string $nombre)
+    public function findByName(string $nombre)
     {
-        return $this->findByName($nombre);
+        return $this->JornadaRepository->findByName($nombre);
     }
     public function findByHora_inicio(string $hora_inicio)
     {
-        return $this->findByHora_inicio($hora_inicio);
+        return $this->JornadaRepository->findByHora_inicio($hora_inicio);
     }
     public function findByHora_fin(string $Hora_fin)
     {
-        return $this->findByHora_fin($Hora_fin); 
+        return $this->JornadaRepository->findByHora_fin($Hora_fin); 
     }
 
 }
