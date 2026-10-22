@@ -10,7 +10,7 @@ class CentroService
 
     public function __construct(CentroInterface $centroRepository)
     {
-        $this->centroRepository = $fichaRepository;
+        $this->centroRepository = $centroRepository;
     }
 
     public function getAll(){
