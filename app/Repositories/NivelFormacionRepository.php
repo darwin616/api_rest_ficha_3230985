@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\NivelFormacion;
-
+use App\Interfaces\NivelFormacionInterface;
 
 class NivelFormacionRepository extends BaseRepository implements NivelFormacionInterface
 {
@@ -11,5 +11,4 @@ class NivelFormacionRepository extends BaseRepository implements NivelFormacionI
     {
         parent::__construct($nivelFormacion);
     }
-
 }
