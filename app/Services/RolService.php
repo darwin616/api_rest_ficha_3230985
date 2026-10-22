@@ -41,13 +41,13 @@ class RolService
 
     public function findByName(string $nombre)
     {
-        return $this->rolByName($nombre);
+        return $this->rolRepository->findByName($nombre);
         
     }
     
     public function findByDescription(string $descripcion)
     {
-        return $this->rolByDescription($descripcion);
+        return $this->rolRepository->findByDescription($descripcion);
     }
 
 
