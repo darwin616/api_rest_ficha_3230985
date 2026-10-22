@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 use App\Models\EventoFormacion;
+use Carbon\Carbon;
 class EventoFormacionRepository extends BaseRepository implements EventoFormacionInterface
 {
     public function __constructor(EventoFormacion $EventoFormacion)
@@ -26,3 +27,4 @@ class EventoFormacionRepository extends BaseRepository implements EventoFormacio
                            ->get();
         
     }
+}
