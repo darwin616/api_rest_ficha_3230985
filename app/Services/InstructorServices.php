@@ -29,13 +29,13 @@ class InstructorServices
 
     public function update(int $id, array $data)
      {
-        $registro = $this->InstructorRepository->update($id, $data);
+        return $this->InstructorRepository->update($id, $data);
 
      }
 
     public function delete(int $id)
     {
-        $registro = $this->InstructorRepository->delete($id);
+        return $this->InstructorRepository->delete($id);
 
     }
     //Los servicios instructores
