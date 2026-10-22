@@ -20,19 +20,22 @@ class CompetenciaRepository extends BaseRepository implements CompetenciaInterfa
 
      public function findByName(strign $nombre)
      {
-        return $this->model->where("nombre", $nombre);
+        return $this->model->where("nombre", $nombre)
+                            ->get();
+            
      }
 
         public function findByHour(int $horas)
     {
-        return $this->model->where("horas", $horas);
+        return $this->model->where("horas", $horas)
+                            ->get();
     }
      
     public function findByHourAndName(int $horas, string $nombre)
     {
         $consulta = $this->model->where("horas", $horas)
-                            ->where("nombre", $nombre);
-
+                            ->where("nombre", $nombre)
+                            ->get();
         if ($consulta->exists()) 
          {
             return $consulta;
