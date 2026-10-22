@@ -17,7 +17,7 @@ class FichaService
 
      public function getAll()
     {
-        $registro = $this->fichaRepository->getAll();  
+        return $this->fichaRepository->getAll();  
     }
 
     public function getByid(int $id)
@@ -32,12 +32,12 @@ class FichaService
 
      public function update(int $id, array $data)
     {
-        $registro = $this->fichaRepository->update($id, $data);
+        return $this->fichaRepository->update($id, $data);
     }
 
     public function delete(int $id)
     {
-        $registro = $this->fichaRepository->delete($id);
+        return $this->fichaRepository->delete($id);
     }
 
     public function findByDate(Carbon $fechaInicio, Carbon $fechaFin)
