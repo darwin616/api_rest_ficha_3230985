@@ -19,7 +19,7 @@ class CompetenciaServices
 
 
     public function getById(int $id){
-       return  $registro = $this->competenciaRepository->getById($id);  
+       return  $this->competenciaRepository->getById($id);  
 
     }
 
@@ -31,12 +31,12 @@ class CompetenciaServices
 
      public function update(int $id, array $data)
      {
-        return $registro = $this->competenciaRepository->update($id, $data);
+        return  $this->competenciaRepository->update($id, $data);
      }
 
     public function delete(int $id)
     {
-        return $registro = $this->competenciaRepository->delete($id);
+        return  $this->competenciaRepository->delete($id);
        
     }
 
