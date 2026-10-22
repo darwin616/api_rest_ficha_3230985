@@ -10,10 +10,6 @@ public function __construct(Especialidad $especialidad)
     parent::__construct($especialidad);
 }
 
-public function findById(int $id)
-{
-    return $this->model->where("id", $id)->first();
-}
 
 public function findByName(string $nombre)
 {
