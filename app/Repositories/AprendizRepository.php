@@ -21,7 +21,7 @@ class AprendizRepository extends BaseRepository implements AprendizInterface
    }
     
    public function findByEmail(string $email){
-    return $this->model->where("nombre", "LIKE", "%" . $nombre. "%")->get();
+    return $this->model->where("email", "LIKE", "%" . $email. "%")->get();
    }
 
 
