@@ -8,8 +8,6 @@ class JornadaService
 {
     protected JornadaInterface $JornadaRepository;
 
-
-
     public function _construct(JornadaInterface $JornadaRepository)
     {
         $this->JornadaRepository = $JornadaRepository ;
