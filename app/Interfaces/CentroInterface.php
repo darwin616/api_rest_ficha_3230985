@@ -2,7 +2,7 @@
 
 namespace App\Interfaces;
 
-interface EventoCentroInterface extends BaseInterface 
+interface CentroInterface extends BaseInterface 
 {
     public function findByCode(int $codigo);
     public function findByName(string $nombre);
