@@ -28,7 +28,7 @@ class EventoFormacionService
 
      public function update(int $id, array $data)
      {
-        return $this->eventoFormacionRepository->update($id);
+        return $this->eventoFormacionRepository->update($id,$data);
      }
 
     public function delete(int $id)
@@ -36,7 +36,7 @@ class EventoFormacionService
         return  $this->eventoFormacionRepository->delete($id);
     }
      public function findByHour(int $horaInicio, int $horaFin){
-        if($horaInicio<$horaFin){
+        if($horaInicio>$horaFin){
             return false;
         }
         return $this->eventoFormacionRepository->findByHour($horaInicio,$horaFin);
@@ -48,7 +48,7 @@ class EventoFormacionService
      }
       public function findByDate(carbon $fechaInicio, carbon $fechaFin )
       {
-        if($fechaInicio<$fechaInicio)
+        if($fechaInicio>$fechaFin)
             {
                 return false;
             }
