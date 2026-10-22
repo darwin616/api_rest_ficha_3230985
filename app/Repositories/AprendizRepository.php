@@ -16,7 +16,7 @@ class AprendizRepository extends BaseRepository implements AprendizInterface
    public function findByName(string $nombre){
     return $this->model->where("nombre", $nombre)->get();
    }
-   public function findBystate(string $estado = 'activo'){
+   public function findBystate(string $estado){
     return $this->model->where("estado, $estado")->get();
    }
     

@@ -6,53 +6,53 @@ use App\Interfaces\AprendizInterface;
 
 class AprendizService
 {
-    protected AprendizInterface $AprendizRepository;
+    protected AprendizInterface $aprendizRepository;
 
-    public function __construct(AprendizInterface  $AprendizRepository)
+    public function __construct(AprendizInterface  $aprendizRepository)
     {
-      $this->AprendizRepository = $AprendizRepository;
+      $this->aprendizRepository = $aprendizRepository;
     }
 
      public function getAll(){
-         $this->AprendizRepository->getall();  
+         $this->aprendizRepository->getAll();  
     }
 
 
     public function getById(int $id){
-        return $this->AprendizRepository->getById($id);  
+        return $this->aprendizRepository->getById($id);  
 
     }
 
     public function create(array $data)
     {
-        return $this->AprendizRepository->create($data); 
+        return $this->aprendizRepository->create($data); 
     }
 
 
      public function update(int $id, array $data)
      {
-        return $this->AprendizRepository->getById($id);
+        return $this->aprendizRepository->update($id , $data);
        
      }
 
     public function delete(int $id)
     {
-        return $this->AprendizRepository->find($id);
+        return $this->aprendizRepository->delete($id);
        
     }
 
     public function findByName(string $nombre)
   {
-    return $this->AprendizRepository->findByName($nombre);
+    return $this->aprendizRepository->findByName($nombre);
   }
 
    
-   public function findBystate(string $estado = 'activo'){
-    return $this->AprendizRepository->findBystate( $estado);
+   public function findBystate(string $estado){
+   return $this->aprendizRepository->findBystate( $estado);
    }
     
    public function findByEmail(string $email){
-    return $this->AprendizRepository->findByEmail($email);
+    return $this->aprendizRepository->findByEmail($email);
    }
 
 }
