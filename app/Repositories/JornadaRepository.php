@@ -18,11 +18,11 @@ class JornadaRepository extends BaseRepository implements JornadaInterface
     }
     public function findByHora_inicio(string $hora_inicio)
     {
-        return $this->model->where("Hora_inicio", $Hora_inicio);
+        return $this->model->where("Hora_inicio", $Hora_inicio)->get();
     }   
     public function findByHora_fin(string $Hora_fin)
     {
-        return $this->model->where("Hora_fin", $Hora_fin);
+        return $this->model->where("Hora_fin", $Hora_fin)->get();
     }
 
 
