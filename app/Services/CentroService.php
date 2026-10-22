@@ -29,7 +29,7 @@ class CentroService
 
      public function update(int $id, array $data)
      {
-        return $centroRepository->fresh($id, $data);
+        return $centroRepository->update($id, $data);
      }
 
     public function delete(int $id)
