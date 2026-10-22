@@ -18,7 +18,7 @@ class ResultadoAprendizajeServices
     }
 
     public function getById(int $id){
-       return $registro = $this->resultadoaprendizajeRepository->getById($id);  
+       return $this->resultadoaprendizajeRepository->getById($id);  
 
     }
 
