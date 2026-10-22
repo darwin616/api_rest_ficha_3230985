@@ -14,7 +14,7 @@ class AprendizService
     }
 
      public function getAll(){
-         $this->aprendizRepository->getAll();  
+        return $this->aprendizRepository->getAll();  
     }
 
 
