@@ -13,12 +13,12 @@ class RolRepository extends BaseRepository implements RolInterface
 
     public function findByName(string $nombre)
     {
-        return $this->model->where("nombre", "%LIKE%", $nombre)->get();
+        return $this->model->where("nombre", "LIKE", "%". $nombre. "%")->get();
         
     }
     
     public function findByDescription(string $descripcion)
     {
-        return $this->model->where("descripcion", "%LIKE%", $descripcion)->get();
+        return $this->model->where("descripcion", "LIKE", "%". $descripcion. "%")->get();
     }
 } 
