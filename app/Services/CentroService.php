@@ -29,12 +29,12 @@ class CentroService
 
      public function update(int $id, array $data)
      {
-        return $centroRepository->fresh();
+        return $centroRepository->fresh($data);
      }
 
     public function delete(int $id)
     {
-        return $centroRepository->delete();
+        return $centroRepository->delete($id);
     }
 
     public function findByNameOrCode(string $codigo)
