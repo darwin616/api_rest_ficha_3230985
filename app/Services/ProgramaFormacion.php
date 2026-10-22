@@ -24,12 +24,12 @@ class ProgramaFormacionService
 
     public function finByName(string $nombre)
     {
-        return $this->finByName($nombre);  
+        return $this->programaformacionRepository($nombre);  
     }
 
      public function finBycode(string $codigo)
     {
-        return $this->finBycode("codigo", $codigo);
+        return $this->programaformacionRepository("codigo", $codigo);
     }
 
 
