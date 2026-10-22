@@ -18,7 +18,7 @@ class AmbienteRepository extends BaseRepository implements AmbienteInterface
     }
     public function findByName(string $name)
     {
-        return $this->model->where("nombre","%LIKE%", $name)->get();
+        return $this->model->where("nombre", "LIKE", "%{$name}%")->get();
     }
     public function findByType(string $tipo)
     {
