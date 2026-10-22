@@ -6,8 +6,8 @@ use App\Models\Modalidad;
 
 class ModalidadRepository extends BaseRepository implements ModalidadInterface
 {
-  public function __construct(Modalidad $Modalidad)
+  public function __construct(Modalidad $modalidad)
   {
-    parent::__construct($Modalidad);
+    parent::__construct($modalidad);
   }
 }
