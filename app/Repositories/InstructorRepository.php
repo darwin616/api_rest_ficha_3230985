@@ -60,4 +60,5 @@ class InstructorRepository extends BaseRepository implements InstructorInterface
        return $this->model->where('activo', $activo)->get();
    }
   // holas
+  ///jdjdjkfkfk
 }
