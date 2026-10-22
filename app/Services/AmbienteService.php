@@ -17,7 +17,7 @@ class AmbienteService
     
     public function getAll()
     {
-         $registro = $this->ambienteRepository->getAll();  
+       return  $registro = $this->ambienteRepository->getAll();  
     }
 
     public function getByid(int $id)
