@@ -35,10 +35,10 @@
         return $this->diarepositorio->delete($id);
     }
     public function findByName(string $nombre){
-        return $this->model->where("nombre", $nombre)->get();
+        return $this->diarepositorio->where("nombre", $nombre)->get();
     }
     public function findByOrder(string $orden){
-        return $this->model->where("orden", $orden)->get();
+        return $this->diarepositorio->where("orden", $orden)->get();
     }
 
     }
