@@ -29,7 +29,7 @@ class ResultadoAprendizajeServices
 
      public function update(int $id, array $data)
      {
-        return $this->resultadoaprendizajeRepository->update($data);
+        return $this->resultadoaprendizajeRepository->update($id, $data);
 
      }
 
