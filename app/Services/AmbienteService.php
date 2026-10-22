@@ -17,7 +17,7 @@ class AmbienteService
     
     public function getAll()
     {
-       return  $registro = $this->ambienteRepository->getAll();  
+       return $this->ambienteRepository->getAll();  
     }
 
     public function getByid(int $id)
@@ -32,12 +32,12 @@ class AmbienteService
 
      public function update(int $id, array $data)
     {
-        return $registro = $this->ambienteRepository->update($id, $data);
+        return $this->ambienteRepository->update($id, $data);
     }
 
     public function delete(int $id)
     {
-       return $registro = $this->ambienteRepository->delete($id);
+       return $this->ambienteRepository->delete($id);
     }
 
 
