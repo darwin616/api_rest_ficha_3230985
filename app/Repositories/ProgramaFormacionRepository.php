@@ -17,8 +17,7 @@ class ProgramaFormacionRepository extends BaseRepository implements ProgramaForm
 
     public function findByName(string $nombre)
     {
-        return $this->model
-        ->where("nombre", "LIKE", "%" . $nombre . "%")->get();
+        return $this->model->where("nombre", "LIKE", "%" . $nombre . "%")->get();
     }
 
    
