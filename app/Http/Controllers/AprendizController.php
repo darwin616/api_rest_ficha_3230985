@@ -89,7 +89,7 @@ class AprendizController extends Controller
         ], 200);
     }
  
-    public function findByName(string $name)
+    public function findByEmail(string $name)
     {
         $registros = $this->aprendizService->findByEmail($email);
  
