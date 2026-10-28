@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Interfaces\MallaTrimestralInterface;
+use App\Repositories\MallaTrimestralRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(MallaTrimestralInterface::class, MallaTrimestralRepository::class);
     }
 
     /**
