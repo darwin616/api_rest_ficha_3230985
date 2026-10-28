@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Interfaces\ResultadoAprendizajeInterface;
+use App\Repositories\ResultadoAprendizajeRepository;
 use App\Interfaces\DiaInterface;
 use App\Repositories\DiaRepository;
 use App\Interfaces\UsuarioInterface;
@@ -34,6 +36,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
+        $this->app->bind(ResultadoAprendizajeInterface::class, ResultadoAprendizajeRepository::class);
         $this->app->bind(DiaInterface::class, DiaRepository::class);                                                                                                     
         $this->app->bind(UsuarioInterface::class, UsuarioRepository::class);
         $this->app->bind(NivelFormacionInterface::class, NivelFormacion::class);
