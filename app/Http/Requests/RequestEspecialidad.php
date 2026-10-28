@@ -47,4 +47,3 @@ class EspecialidadRequest extends FormRequest
         ];
     }
 }
- 
