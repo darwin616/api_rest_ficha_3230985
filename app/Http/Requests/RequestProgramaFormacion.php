@@ -8,23 +8,18 @@ use Illuminate\Validation\Rule;
 
 class RequestProgramaFormacion extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
     public function authorize(): bool
     {
         return true;
     }
 
     /**
-     * Get the validation rules that apply to the request.
-     *
      * @return array<string, ValidationRule|array<mixed>|string>
      */
     public function rules(): array
     {
         $isUpdate = $this->isMethod('PUT') || $this->isMethod('PATCH');
-        $programaId = $this->route('programa_formacion') ?? $this->route('id'); 
+        $programaId = $this->route('programa_formacion') ?? $this->route('id');
 
         return [
             'centro_id' => [
@@ -70,11 +65,6 @@ class RequestProgramaFormacion extends FormRequest
         ];
     }
 
-    /**
-     * Get the error messages for the defined validation rules.
-     *
-     * @return array<string, string>
-     */
     public function messages(): array
     {
         return [
