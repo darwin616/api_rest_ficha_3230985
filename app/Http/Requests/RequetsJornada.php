@@ -1,12 +1,10 @@
-
 <?php
- 
 namespace App\Http\Requests;
  
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
  
-class RequestJornada extends FormRequest
+class RequetsJornada extends FormRequest
 {
     public function authorize(): bool
     {
