@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Interfaces\CentroInterface;
+use App\Repositories\CentroRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
