@@ -3,98 +3,93 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\RequestJornada;
-use App\Services\JornadaService; // Corregido: Usar el servicio de Jornada
+use App\Http\Requests\JornadaRequest;
+use App\Services\JornadaService;
  
 class JornadaController extends Controller
 {
-    // Inyección de dependencia corregida a $jornadaService
     public function __construct(private JornadaService $jornadaService)
     {
     }
  
     public function index()
     {
-        $registros = $this->jornadaService->getAll();
+        $records = $this->jornadaService->getAll();
  
         return response()->json([
-            'message' => "Se listaron las jornadas correctamente",
-            'datos' => $registros
+            'message' => 'Jornadas retrieved successfully',
+            'data' => $records
         ], 200);
     }
  
-    // Crear un registro
-    public function almacenar(RequestJornada $request)
+    // Create a new record
+    public function store(JornadaRequest $request)
     {
-        $registroJornada = $this->jornadaService->create($request->validated());
+        $jornadaRecord = $this->jornadaService->create($request->validated());
                
         return response()->json([
-            'message' => 'La jornada se creó correctamente',
-            'datosRegistrados' => $registroJornada // Corregido $registroRol a $registroJornada
+            'message' => 'Jornada created successfully',
+            'registeredData' => $jornadaRecord
         ], 201);
     }
  
-    // Traer un registro por id
-    public function mostrar(string $id)
+    // Fetch a record by ID
+    public function show(string $id)
     {
-        $registro = $this->jornadaService->getById($id);
+        $record = $this->jornadaService->getById($id);
  
-        // Corregido: 'si' por 'if', eliminada la coma sobrante y corregida la variable
-        if (!$registro) {
+        if (!$record) {
             return response()->json([
-                'message' => 'No se encontró el registro con ese id'
+                'message' => 'Record not found with the provided ID'
             ], 404);
         }
  
         return response()->json([
-            'message' => 'Se listó el registro correctamente',
-            'datos' => $registro // Corregido $registro en lugar de undefined
+            'message' => 'Record retrieved successfully',
+            'data' => $record
         ], 200);
     }
  
-    // Actualizar un registro
-    public function actualizar(RequestJornada $request, string $id) // Corregido: public function y RequestJornada
+    // Update a record
+    public function update(JornadaRequest $request, string $id)
     {
-        // Corregido: flecha '->' rota y método del servicio
-        $registroActualizado = $this->jornadaService->update($id, $request->validated());
+        $updatedRecord = $this->jornadaService->update($id, $request->validated());
  
-        if (!$registroActualizado) {
+        if (!$updatedRecord) {
             return response()->json([
-                'message' => 'No se encontró el registro con ese id'
+                'message' => 'Record not found with the provided ID'
             ], 404);
         }
  
         return response()->json([
-            'message' => 'Se actualizó el registro correctamente',
-            'data' => $registroActualizado
+            'message' => 'Record updated successfully',
+            'data' => $updatedRecord
         ], 200);
     }
  
-    // Eliminar un registro
-    public function destruir(string $id) // Corregido: public function y 'string $id'
+    // Delete a record
+    public function destroy(string $id)
     {
-        // Corregido: flecha '->'
-        $validar = $this->jornadaService->delete($id);
+        $deleted = $this->jornadaService->delete($id);
 
-        if (!$validar) {
+        if (!$deleted) {
             return response()->json([
-                'message' => 'No se encontró el registro con ese id'
+                'message' => 'Record not found with the provided ID'
             ], 404);
         }
  
-        // Corregido: Se quitó un paréntesis sobrante en response()
         return response()->json([
-            'message' => 'La jornada se eliminó correctamente',
+            'message' => 'Jornada deleted successfully',
         ], 200);
     }
  
-    public function findByName(string $name) // Corregido: public function y 'string $name'
+    public function findByName(string $name)
     {
-        $registros = $this->jornadaService->findByName($name);
+        $records = $this->jornadaService->findByName($name);
  
         return response()->json([
-            'message' => 'Se listó correctamente por nombre',
-            'datos' => $registros
+            'message' => 'Records retrieved successfully by name',
+            'data' => $records
         ], 200);
     }
 }
