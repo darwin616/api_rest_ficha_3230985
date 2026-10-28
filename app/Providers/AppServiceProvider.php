@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Interfaces\NivelFormacionInterface;
+use App\Repositories\NivelFormacion;
 use App\Interfaces\FichaInterface;
 use App\Repositories\FichaRepository;
 use App\interfaces\EspecialidadInterface;
@@ -28,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
+        $this->app->bind(NivelFormacionInterface::class, NivelFormacion::class);
         $this->app->bind(FichaInterface::class, FichaRepository::class);
         $this->app->bind(BaseDatosInterface::class, EspecialidadRepository::class);
         $this->app->bind(MallaTrimestralInterface::class, MallaTrimestralRepository::class);
@@ -44,4 +47,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
+}
+
 }
