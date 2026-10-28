@@ -1,7 +1,7 @@
 <?php
 
 namespace App\services;
-use App\Interfaces\EventoFormacionInterface;
+use App\InterfacesEventoFormacionService\EventoFormacionInterface;
 
 class EventoFormacionService
 {
