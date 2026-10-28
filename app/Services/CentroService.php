@@ -36,12 +36,13 @@ class CentroService
     {
         return $centroRepository->delete($id);
     }
-
-    public function findByNameOrCode(string $codigo)
+    
+    public function findByNameOrCode(string $codigo, string $nombre)
     {
-        return $this->centroRepository->findByNameOrCode("codigo", $codigo)
-                       ->orWhere("nombre", $nombre)
-                       ->get();
+        return $this->centroRepository->model()
+        ->where('codigo', $codigo)
+        ->orWhere('nombre', 'LIKE', "%{$nombre}%")
+        ->get(); 
     }
 
      public function findByNameOrRegion(string $region)
