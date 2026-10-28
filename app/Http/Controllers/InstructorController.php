@@ -143,7 +143,7 @@ class InstructorController extends Controller
             'data' => $registros
         ], 200);
     }
-    // Buscar por Correo (retorna 1 solo registro porque es unique)
+    // Buscar por Correo 
     public function findByCorreo(string $correo)
     {
         $registro = $this->instructorService->findByCorreo($correo);
@@ -161,7 +161,6 @@ class InstructorController extends Controller
     }
 
     // Buscar por Apellidos 
-    // (Útil si quieres buscar solo por apellidos, separado del findByName)
     public function findByApellidos(string $apellidos)
     {
         $registros = $this->instructorService->findByApellidos($apellidos);
