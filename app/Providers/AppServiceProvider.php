@@ -63,7 +63,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(InstructorInterface::class, InstructorRepository::class);
         $this ->app->bind(RolInterface::class, RolRepository::class);
         $this->app->bind(AmbienteInterface::class, AmbienteRepository::class);
-       $this->app->bind(BaseDatosInterface::class);
+       $this->app->bind(BaseDatosInterface::class, CompetenciaRepository::class);
        $this->app->bind(ModalidadInterface::class, ModalidadRepository::class);
     }
 
