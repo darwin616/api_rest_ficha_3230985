@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Htpp\Controllers\ModalidadController;
+use App\Http\Controllers\ModalidadController;
 
 //http://localhost::8000/api/v1/modalidad
 

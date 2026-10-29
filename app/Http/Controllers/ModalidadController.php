@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
-use App\Services\ModalidadServices;
+use App\Services\ModalidadService;
 use App\Http\Requests\RequestModalidad;
  
-class RolController extends Controller
+class ModalidadController extends Controller
 {
     public function __construct(private ModalidadService $modalidadService)
     {
@@ -89,17 +89,4 @@ class RolController extends Controller
         ], 200);
     }
 }
- 
- 
-
-
-public function findByName(string $name)
-    {
-        $registros = $this->rolService->findByName($name);
- 
-        return response()->json([
-            'message' =>'Se listó correctamente por nombre',
-            'data' => $registros
-        ], 200);
-    }
  

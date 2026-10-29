@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('modalidades', function (Blueprint $table) {
             $table->id();
             $table->string("nombre", 60)->unique();
+
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
