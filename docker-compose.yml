@@ -37,7 +37,7 @@ services:
     image: phpmyadmin:latest
     container_name: phpmyadmin_container
     environment:
-      - PMA_HOST=db 
+      - PMA_HOST=mysql_container
     ports:
       - "8081:80"
     networks:
