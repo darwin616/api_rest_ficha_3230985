@@ -11,11 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tipo_vinculaciones', function (Blueprint $table) {
+        Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
-            $table->string("nombre" ,40)->unique();
+            $table->unsignedBigInteger("rol_id");
+            $table->string("nombre",150);
+            $table->string("correo",150)->unique();
+            $table->string("password");
+            $table->boolean("activo");
             $table->timestamps();
             $table->softDeletes();
+            $table->foreign("rol_id")->references("id")->on("roles")->onDelete("cascade");
         });
     }
 
@@ -24,7 +29,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIFExists("tipo_vinculaciones");
-            
-    }
+        Schema::dropIfExists("usuarios");
+}
+
 };

@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('especialidades', function (Blueprint $table) {
-        $table->id();
-        $table->string("nombre", 120)->unique();
-        $table->string("descripcion", 255)->nullable();
-        $table->timestamps();
-        $table->softDeletes();
+        Schema::create('dias', function (Blueprint $table) {
+            $table->id();
+            $table->string("nombre", 20)->unique();
+            $table->unsignedTinyInteger("orden")->unique();
 
-        
+            $table->timestamps();
+            $table->softDeletes();
+
+
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists("especialidades");
+        Schema::dropIfExists("dias");
     }
 };
