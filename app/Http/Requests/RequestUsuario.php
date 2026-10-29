@@ -8,7 +8,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UsuarioRequest extends FormRequest
+class RequestUsuario extends FormRequest
 {
     public function authorize(): bool
     {

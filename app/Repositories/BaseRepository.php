@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BaseRepository implements BaseInterface
 {
-    private Model $model;
+    protected Model $model;
 
     public function __construct(Model $model)
     {

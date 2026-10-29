@@ -1,6 +1,9 @@
 <?php
 namespace App\Repositories;
 
+use App\Interfaces\UsuarioInterface;
+use App\Models\Usuario;
+
 class UsuarioRepository extends BaseRepository implements UsuarioInterface
 {
     public function __construct(Usuario $usuario){
@@ -8,29 +11,16 @@ class UsuarioRepository extends BaseRepository implements UsuarioInterface
     }
     public function findByCorreo(string $correo)
     {
-        $registro = $this->model->where("correo","LIKE","%", $correo,"%")->get();  
-        if(isEmpty($registro))
-        {
-            return null;
-        }
-        return $registro;
+        return $this->model->where("correo", "LIKE", "%{$correo}%")->get();
     }
+
     public function findByName(string $nombre)
     {
-        $registro = $this->model->where("nombre","LIKE", "%",$nombre,"%")->get();  
-        if(isEmpty($registro))
-        {
-            return null;
-        }
-        return $registro;    
+        return $this->model->where("nombre", "LIKE", "%{$nombre}%")->get();
     }
-    public function findByActive(boolean $activo)
+
+    public function findByActive(bool $activo)
     {
-        $registro = $this->model->where("activo", $activo)->get();  
-        if(isEmpty($registro))
-        {
-            return null;
-        }
-        return $registro;  
+        return $this->model->where("activo", $activo)->get();
     }
-}    
+}

@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Usuario extends Model
 {
+    use SoftDeletes;
+
     protected $table = "usuarios";
+
     protected $fillable = [
         "rol_id",
         "nombre",
@@ -16,13 +18,31 @@ class Usuario extends Model
         "password",
         "activo"
     ];
-    public function rol(){
-        return $this->belongTo(Rol::class);
+
+    protected $hidden = [
+        "password",
+    ];
+
+    protected function casts(): array
+    {
+        return [
+            "activo" => "boolean",
+            "password" => "hashed",
+        ];
     }
-    public function aprendiz(){
+
+    public function rol()
+    {
+        return $this->belongsTo(Rol::class);
+    }
+
+    public function aprendiz()
+    {
         return $this->hasOne(Aprendiz::class);
     }
-    public function instructor(){
-        return $this->hasOne(instructor::class);
+
+    public function instructor()
+    {
+        return $this->hasOne(Instructor::class);
     }
 }
