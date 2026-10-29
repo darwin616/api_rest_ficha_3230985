@@ -79,6 +79,8 @@ class UsuarioController extends Controller
         return response()->json([
             'message' =>'El usuario se eliminó correctamente',
         ], 200);
+
+        //
     }
     
     public function findByCorreo(string $correo)
