@@ -84,7 +84,7 @@ class UsuarioController extends Controller
     public function findByCorreo(string $correo)
     {
         $registros = $this->usuarioService->findByCorreo($correo);
-        if ($registros->isEmpty())
+        if (count($registros) === 0)
         {
             return response()->json([
                 'message' => 'Manito no se encontró el registro con ese correo '.$correo
@@ -100,7 +100,7 @@ class UsuarioController extends Controller
     public function findByName(string $name)
     {
         $registros = $this->usuarioService->findByName($name);
-        if ($registros->isEmpty())
+        if (count($registros) === 0)
         {
             return response()->json([
                 'message' => 'Manito no se encontró el registro con ese nombre '.$name
@@ -123,7 +123,7 @@ class UsuarioController extends Controller
         }
 
         $registros = $this->usuarioService->findByActive($estadoActivo);
-        if ($registros->isEmpty())
+        if (count($registros) === 0)
         {
             return response()->json([
                 'message' => 'No hay usuarios con el estado solicitado'
