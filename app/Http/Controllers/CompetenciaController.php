@@ -21,7 +21,6 @@ class CompetenciaController extends Controller
         ], 200);
     }
 
-    // Crear un registro
     public function store(RequestCompetencia $request)
     {
         $registroCompetencia = $this->competenciaService->create($request->validated());
@@ -32,7 +31,6 @@ class CompetenciaController extends Controller
         ], 201);
     }
 
-    // Traer un registro por id
     public function show(string $id)
     {
         $registro = $this->competenciaService->getById($id);
@@ -49,7 +47,6 @@ class CompetenciaController extends Controller
         ], 200);
     }
 
-    // Actualizar un registro
     public function update(RequestCompetencia $request, string $id)
     {
         $registroActualizado = $this->competenciaService->update( $id, $request->validated());
@@ -66,7 +63,6 @@ class CompetenciaController extends Controller
         ], 200);
     }
 
-    // Eliminar un registro
     public function destroy(string $id)
     {
         $validar = $this->competenciaService->delete($id);

@@ -44,7 +44,4 @@ class CompetenciaRepository extends BaseRepository implements CompetenciaInterfa
          return null;
     }
 
-
-
-
 }
