@@ -48,7 +48,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(TrimestreInterface::class, TrimestreRepository::class);
         $this->app->bind(Jornada::class, JornadaRepository::class);
-        $this->app->bind(VigenciaInterface::class, VigenciaRepository ::class);
+        $this->app->bind(VigenciaInterface::class, VigenciaRepository::class);
         $this->app->bind(CentroInterface::class, CentroRepository::class);
         $this->app->bind(EventoFormacionInterface::class, EventoFormacionRepository::class);
         $this->app->bind(ResultadoAprendizajeInterface::class, ResultadoAprendizajeRepository::class);

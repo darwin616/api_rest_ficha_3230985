@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Vigencia;
-
+use App\Interfaces\VigenciaInterface;
 
 class VigenciaRepository extends BaseRepository implements VigenciaInterface
 {

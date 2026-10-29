@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
  
 use Illuminate\Http\Requests;
-use App\Service\VigenciaServices;
+use App\Services\VigenciaService;
 use App\Http\Requests\RequestVigencia;
  
 class VigenciaController extends Controller
@@ -40,7 +40,7 @@ class VigenciaController extends Controller
     {
         $registro = $this->vigenciaService->getById($id);
  
-        if(!registroActualizado)
+        if(!$registro)
         {
             return response()->json([
                 'message' => 'Manito no se encontró el registro con ese id'
@@ -76,7 +76,7 @@ class VigenciaController extends Controller
     public function destroy(string $id)
     {
         $validar = $this->vigenciaService->delete($id);
-                      if(!registroActualizado)
+                      if(!validar)
         {
             return response()->json([
                 'message' => 'Manito no se encontró el registro con ese id'
